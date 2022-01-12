@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+		<record model="ir.actions.report" id="print_address_label.address_label_report">
+      <field name="name">Address label</field>
+      <field name="model">res.partner</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">print_address_label.address_label_document</field>
+      <field name="report_file">print_address_label.address_label_document</field>
+      <field name="print_report_name">'address_label'</field>
+      <field name="binding_type">report</field>
+      <field name="binding_model_id" ref="base.model_res_partner"/>
+      <field name="paperformat_id" ref="print_address_label.paperformat_address_label"/>
+    </record>
+
+    <template id="print_address_label.report_assets" inherit_id="web.report_assets_common">
+      <xpath expr="." position="inside">
+        <link type="text/css" rel="stylesheet" href="/print_address_label/static/src/css/address_label.css"/>
+      </xpath>
+    </template>
+
+	  <template id="print_address_label.address_label_document">
+		  <t t-call="web.basic_layout">
+	      <t t-foreach="docs" t-as="contact">
+		      <div class="label-content">
+					  <div class="sender-address">
+							<span t-field="res_company.display_name"/><br/>
+							<span t-field="res_company.street"/><br/>
+							<t  t-if="res_company.street2">
+								<span t-field="res_company.street2"/><br/>
+							</t>
+							<span t-field="res_company.zip"/> <span t-field="res_company.city"/>
+					  </div>
+					  <div class="address">
+							<span t-field="contact.display_name"/><br/>
+							<span t-field="contact.street"/><br/>
+							<t  t-if="contact.street2">
+								<span t-field="contact.street2"/><br/>
+							</t>
+							<span t-field="contact.zip"/> <span t-field="contact.city"/>
+					  </div>
+		      </div>
+			  </t>
+	    </t>
+	  </template>
+  </data>
+</odoo>

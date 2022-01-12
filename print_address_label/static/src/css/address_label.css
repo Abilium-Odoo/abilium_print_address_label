@@ -1,0 +1,43 @@
+
+.container {
+    padding: 0;
+}
+
+div.label-content {
+    position: relative;
+    width: 90mm;
+    height: 28mm;
+    margin: 0;
+    padding: 0;
+    page-break-after: always;
+}
+
+div.label-content>div.address {
+    position: absolute;
+    width: 70mm;
+    height: 28mm;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 4mm;
+    padding-left: 6mm;
+    font-size: 3.8mm;
+    line-height: 5mm;
+}
+
+div.label-content>div.sender-address {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 28mm;
+    height: 20mm;
+    padding: 0 4.6mm;
+    padding-top: 2mm;
+    border-top: 1px solid rgb(184, 184, 184);
+    margin: 0;
+    font-size: 2.5mm;
+    line-height: 3.3mm;
+    -webkit-transform-origin: top left;
+    -webkit-transform: rotate(90deg) translate(0, -20mm);
+}

@@ -1,0 +1,5 @@
+
+#. module: print_address_label
+#: model:ir.actions.report,name:print_address_label.address_label_report
+msgid "Address label"
+msgstr "Adressetikett"
